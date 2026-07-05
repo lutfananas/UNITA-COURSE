@@ -1,0 +1,8 @@
+name = "unita-course"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+[vars]
+DATABASE_URL = "file:./db/custom.db"
+SESSION_SECRET = "unita-learn-secret-2024-production"
