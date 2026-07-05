@@ -52,3 +52,32 @@ prompt
 server.log
 # Skills directory
 /skills/
+# Database files
+/db/*.db
+/db/*.db-journal
+
+# Upload folder (user uploaded files)
+/upload/
+
+# Download folder (output files)
+/download/
+
+# Z-scripts (dev environment)
+/.zscripts/
+
+# Cloudflare
+/.wrangler/
+wrangler.toml.bak
+
+# OS files
+Thumbs.db
+
+# Dev environment
+/.zscripts/
+/Caddyfile
+/examples/
+/mini-services/
+
+# Unrelated scripts (RPS docx generators)
+/scripts/generate_rps_mtk.js
+/scripts/fix_landscape.js
