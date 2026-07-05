@@ -2,7 +2,8 @@
 // Pilot: Fakultas Ekonomi, course: Interview Skills for Beginners
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {

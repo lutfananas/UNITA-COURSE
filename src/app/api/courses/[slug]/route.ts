@@ -1,13 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/db';
+import { db as getDb } from '@/lib/db';
 import { getSessionUser } from '@/lib/session';
 
+
+export const runtime = 'edge';
 export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
 ) {
+  const prisma = await getDb();
   const { slug } = await params;
-  const course = await db.course.findUnique({
+  const course = await prisma.course.findUnique({
     where: { slug },
     include: {
       category: true,
@@ -53,16 +56,16 @@ export async function GET(
   let hasCertificate = false;
 
   if (user) {
-    enrollment = await db.enrollment.findUnique({
+    enrollment = await prisma.enrollment.findUnique({
       where: { userId_courseId: { userId: user.id, courseId: course.id } },
     });
     if (enrollment) {
-      const progList = await db.progress.findMany({
+      const progList = await prisma.progress.findMany({
         where: { userId: user.id, lesson: { module: { courseId: course.id } } },
       });
       progress = Object.fromEntries(progList.map((p) => [p.lessonId, p.completed]));
     }
-    hasCertificate = await db.certificate.findUnique({
+    hasCertificate = await prisma.certificate.findUnique({
       where: { userId_courseId: { userId: user.id, courseId: course.id } },
     }).then(Boolean);
   }

@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/db';
+import { db as getDb } from '@/lib/db';
 
+
+export const runtime = 'edge';
 export async function GET(req: NextRequest) {
+  const prisma = await getDb();
   const { searchParams } = new URL(req.url);
   const category = searchParams.get('category');
   const level = searchParams.get('level');
@@ -28,7 +31,7 @@ export async function GET(req: NextRequest) {
   if (sort === 'rating') orderBy = { rating: 'desc' };
   if (sort === 'popular') orderBy = { enrollCount: 'desc' };
 
-  const courses = await db.course.findMany({
+  const courses = await prisma.course.findMany({
     where,
     orderBy,
     include: {
@@ -68,7 +71,7 @@ export async function GET(req: NextRequest) {
     };
   });
 
-  const categories = await db.category.findMany({
+  const categories = await prisma.category.findMany({
     include: { _count: { select: { courses: { where: { published: true } } } } },
     orderBy: { name: 'asc' },
   });

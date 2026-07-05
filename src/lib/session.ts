@@ -1,17 +1,26 @@
 // Simple session util using HTTP-only cookies (no NextAuth needed for MVP)
 import { cookies } from 'next/headers';
-import { db } from '@/lib/db';
+import { db as getDb } from '@/lib/db';
 
 export const SESSION_COOKIE = 'unita_session';
 const SESSION_SECRET = process.env.SESSION_SECRET || 'unita-learn-secret-2024';
 
 // Simple base64 encode/decode for session token (NOT production-grade crypto)
 function encode(obj: any): string {
-  return Buffer.from(JSON.stringify(obj)).toString('base64');
+  // Use Buffer if available (Node), fallback to btoa (browser/edge)
+  try {
+    return Buffer.from(JSON.stringify(obj)).toString('base64');
+  } catch {
+    return btoa(JSON.stringify(obj));
+  }
 }
 function decode<T = any>(str: string): T | null {
   try {
-    return JSON.parse(Buffer.from(str, 'base64').toString('utf-8'));
+    try {
+      return JSON.parse(Buffer.from(str, 'base64').toString('utf-8'));
+    } catch {
+      return JSON.parse(atob(str));
+    }
   } catch {
     return null;
   }
@@ -41,7 +50,8 @@ export async function getSessionUser() {
   const decoded = decode<{ id: string; email: string; role: string; expiresAt: number }>(token);
   if (!decoded) return null;
   if (decoded.expiresAt < Date.now()) return null;
-  const user = await db.user.findUnique({
+  const prisma = await getDb();
+  const user = await prisma.user.findUnique({
     where: { id: decoded.id },
     select: { id: true, email: true, name: true, role: true, avatar: true, headline: true },
   });

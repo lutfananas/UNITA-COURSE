@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/db';
+import { db as getDb } from '@/lib/db';
 import { getSessionUser } from '@/lib/session';
 
+
+export const runtime = 'edge';
 // POST /api/progress - mark lesson complete/incomplete
 export async function POST(req: NextRequest) {
   try {
+    const prisma = await getDb();
     const user = await getSessionUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -17,7 +20,7 @@ export async function POST(req: NextRequest) {
 
     // Verify enrollment
     if (courseId) {
-      const enrolled = await db.enrollment.findUnique({
+      const enrolled = await prisma.enrollment.findUnique({
         where: { userId_courseId: { userId: user.id, courseId } },
       });
       if (!enrolled) {
@@ -25,7 +28,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const progress = await db.progress.upsert({
+    const progress = await prisma.progress.upsert({
       where: { userId_lessonId: { userId: user.id, lessonId } },
       update: { completed: !!completed, lastPosSec: 0 },
       create: { userId: user.id, lessonId, completed: !!completed },
@@ -33,11 +36,11 @@ export async function POST(req: NextRequest) {
 
     // Update enrollment progressPct
     if (courseId) {
-      const allLessons = await db.lesson.findMany({
+      const allLessons = await prisma.lesson.findMany({
         where: { module: { courseId } },
         select: { id: true },
       });
-      const completedCount = await db.progress.count({
+      const completedCount = await prisma.progress.count({
         where: {
           userId: user.id,
           completed: true,
@@ -45,22 +48,22 @@ export async function POST(req: NextRequest) {
         },
       });
       const pct = allLessons.length ? (completedCount / allLessons.length) * 100 : 0;
-      await db.enrollment.update({
+      await prisma.enrollment.update({
         where: { userId_courseId: { userId: user.id, courseId } },
         data: { progressPct: pct, lastAccessed: new Date() },
       });
 
       // Auto-issue certificate if 100%
       if (pct >= 100) {
-        const existing = await db.certificate.findUnique({
+        const existing = await prisma.certificate.findUnique({
           where: { userId_courseId: { userId: user.id, courseId } },
         });
         if (!existing) {
           const certNo = `UNITA-${new Date().getFullYear()}-${Date.now().toString(36).toUpperCase().slice(-8)}`;
-          await db.certificate.create({
+          await prisma.certificate.create({
             data: { userId: user.id, courseId, certificateNo: certNo },
           });
-          await db.enrollment.update({
+          await prisma.enrollment.update({
             where: { userId_courseId: { userId: user.id, courseId } },
             data: { completedAt: new Date() },
           });

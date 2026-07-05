@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import { db } from '@/lib/db';
+import { db as getDb } from '@/lib/db';
 import { createSessionCookie } from '@/lib/session';
 
+
+export const runtime = 'edge';
 export async function POST(req: NextRequest) {
   try {
+    const prisma = await getDb();
     const { name, email, password, headline } = await req.json();
     if (!name || !email || !password) {
       return NextResponse.json({ error: 'Nama, email, dan password wajib diisi' }, { status: 400 });
@@ -13,13 +16,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Password minimal 6 karakter' }, { status: 400 });
     }
 
-    const existing = await db.user.findUnique({ where: { email: email.toLowerCase().trim() } });
+    const existing = await prisma.user.findUnique({ where: { email: email.toLowerCase().trim() } });
     if (existing) {
       return NextResponse.json({ error: 'Email sudah terdaftar' }, { status: 409 });
     }
 
     const passwordHash = await bcrypt.hash(password, 10);
-    const user = await db.user.create({
+    const user = await prisma.user.create({
       data: {
         name,
         email: email.toLowerCase().trim(),

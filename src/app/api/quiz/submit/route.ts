@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/db';
+import { db as getDb } from '@/lib/db';
 import { getSessionUser } from '@/lib/session';
 
+
+export const runtime = 'edge';
 const QUIZ_QUESTIONS = [
   {
     id: 1,
@@ -71,6 +73,7 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
+    const prisma = await getDb();
     const user = await getSessionUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -99,7 +102,7 @@ export async function POST(req: NextRequest) {
     const passed = score >= 70;
 
     // Save attempt
-    const attempt = await db.quizAttempt.create({
+    const attempt = await prisma.quizAttempt.create({
       data: {
         userId: user.id,
         courseId,
@@ -111,33 +114,33 @@ export async function POST(req: NextRequest) {
 
     // If passed & enrolled, auto-issue certificate
     if (passed) {
-      const enrolled = await db.enrollment.findUnique({
+      const enrolled = await prisma.enrollment.findUnique({
         where: { userId_courseId: { userId: user.id, courseId } },
       });
       if (enrolled) {
         // Mark all lessons complete
-        const lessons = await db.lesson.findMany({
+        const lessons = await prisma.lesson.findMany({
           where: { module: { courseId } },
           select: { id: true },
         });
         for (const l of lessons) {
-          await db.progress.upsert({
+          await prisma.progress.upsert({
             where: { userId_lessonId: { userId: user.id, lessonId: l.id } },
             update: { completed: true },
             create: { userId: user.id, lessonId: l.id, completed: true },
           });
         }
-        await db.enrollment.update({
+        await prisma.enrollment.update({
           where: { userId_courseId: { userId: user.id, courseId } },
           data: { progressPct: 100, completedAt: new Date(), lastAccessed: new Date() },
         });
 
-        const existing = await db.certificate.findUnique({
+        const existing = await prisma.certificate.findUnique({
           where: { userId_courseId: { userId: user.id, courseId } },
         });
         if (!existing) {
           const certNo = `UNITA-${new Date().getFullYear()}-${Date.now().toString(36).toUpperCase().slice(-8)}`;
-          await db.certificate.create({
+          await prisma.certificate.create({
             data: { userId: user.id, courseId, certificateNo: certNo },
           });
         }
