@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Toaster as SonnerToaster } from 'sonner';
 import { toast } from 'sonner';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Header } from '@/components/untag/Header';
 import { HomePage } from '@/components/untag/HomePage';
 import { CourseDetailPage } from '@/components/untag/CourseDetailPage';
@@ -90,53 +91,63 @@ export default function Home() {
       />
 
       <main className="flex-1">
-        {view.type === 'home' && (
-          <HomePage
-            user={user}
-            onNavigate={navigate}
-            onOpenAuth={openAuth}
-            requireAuth={requireAuth}
-          />
-        )}
-        {view.type === 'course' && (
-          <CourseDetailPage
-            slug={view.slug}
-            user={user}
-            onNavigate={navigate}
-            onOpenAuth={openAuth}
-            requireAuth={requireAuth}
-          />
-        )}
-        {view.type === 'learn' && (
-          <LearningPage
-            courseId={view.courseId}
-            lessonId={view.lessonId}
-            user={user}
-            onNavigate={navigate}
-            onOpenAuth={openAuth}
-          />
-        )}
-        {view.type === 'dashboard' && (
-          <DashboardPage
-            user={user}
-            onNavigate={navigate}
-            onOpenAuth={openAuth}
-          />
-        )}
-        {view.type === 'certificate' && (
-          <CertificatePage
-            certificateId={view.certificateId}
-            user={user}
-            onNavigate={navigate}
-          />
-        )}
-        {view.type === 'quiz' && (
-          <QuizPage
-            courseId={view.courseId}
-            user={user}
-            onNavigate={navigate}
-          />
-        )}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={JSON.stringify(view)}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {view.type === 'home' && (
+              <HomePage
+                user={user}
+                onNavigate={navigate}
+                onOpenAuth={openAuth}
+                requireAuth={requireAuth}
+              />
+            )}
+            {view.type === 'course' && (
+              <CourseDetailPage
+                slug={view.slug}
+                user={user}
+                onNavigate={navigate}
+                onOpenAuth={openAuth}
+                requireAuth={requireAuth}
+              />
+            )}
+            {view.type === 'learn' && (
+              <LearningPage
+                courseId={view.courseId}
+                lessonId={view.lessonId}
+                user={user}
+                onNavigate={navigate}
+                onOpenAuth={openAuth}
+              />
+            )}
+            {view.type === 'dashboard' && (
+              <DashboardPage
+                user={user}
+                onNavigate={navigate}
+                onOpenAuth={openAuth}
+              />
+            )}
+            {view.type === 'certificate' && (
+              <CertificatePage
+                certificateId={view.certificateId}
+                user={user}
+                onNavigate={navigate}
+              />
+            )}
+            {view.type === 'quiz' && (
+              <QuizPage
+                courseId={view.courseId}
+                user={user}
+                onNavigate={navigate}
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       <Footer onNavigate={navigate} />
