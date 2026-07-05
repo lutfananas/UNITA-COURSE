@@ -33,8 +33,8 @@ export function CourseCard({ course, onClick }: CourseCardProps) {
               className="w-full h-full object-cover transition-transform group-hover:scale-105"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center">
-              <BookOpen className="w-10 h-10 text-teal-400" />
+            <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-100 flex items-center justify-center">
+              <BookOpen className="w-10 h-10 text-blue-400" />
             </div>
           )}
           <div className="absolute top-2 left-2 flex gap-1">
@@ -48,7 +48,7 @@ export function CourseCard({ course, onClick }: CourseCardProps) {
                 Premium
               </Badge>
             ) : (
-              <Badge className="bg-teal-600 hover:bg-teal-700 text-white text-xs">
+              <Badge className="bg-blue-900 hover:bg-blue-800 text-white text-xs">
                 Gratis
               </Badge>
             )}
@@ -56,7 +56,7 @@ export function CourseCard({ course, onClick }: CourseCardProps) {
           {/* Hover play overlay */}
           <div className="absolute inset-0 bg-black/0 hover:bg-black/40 transition-colors flex items-center justify-center">
             <div className="w-12 h-12 rounded-full bg-white/0 hover:bg-white/95 flex items-center justify-center transition-all opacity-0 hover:opacity-100">
-              <Play className="w-5 h-5 text-teal-700 fill-teal-700" />
+              <Play className="w-5 h-5 text-blue-800 fill-blue-800" />
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ export function CourseCard({ course, onClick }: CourseCardProps) {
         <div className="p-4 flex flex-col flex-1">
           {/* Category */}
           {course.category && (
-            <div className="text-xs text-teal-600 font-medium mb-1">
+            <div className="text-xs text-blue-900 font-medium mb-1">
               {course.category.name}
             </div>
           )}
@@ -84,7 +84,7 @@ export function CourseCard({ course, onClick }: CourseCardProps) {
           <div className="flex items-center gap-2 mb-3">
             <Avatar className="w-6 h-6">
               <AvatarImage src={course.instructor.avatar || undefined} />
-              <AvatarFallback className="text-[10px] bg-teal-100 text-teal-700">
+              <AvatarFallback className="text-[10px] bg-blue-100 text-blue-800">
                 {course.instructor.name.charAt(0)}
               </AvatarFallback>
             </Avatar>
@@ -118,7 +118,7 @@ export function CourseCard({ course, onClick }: CourseCardProps) {
               <BookOpen className="w-3.5 h-3.5" />
               {course.totalLessons} pelajaran
             </div>
-            <Badge variant="outline" className="text-teal-700 border-teal-200 bg-teal-50">
+            <Badge variant="outline" className="text-blue-800 border-blue-200 bg-blue-50">
               <CheckCircle2 className="w-3 h-3 mr-1" />
               {course.premium ? 'Berbayar' : 'Gratis'}
             </Badge>

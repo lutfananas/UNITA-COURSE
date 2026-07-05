@@ -2,8 +2,8 @@
 import { cookies } from 'next/headers';
 import { db } from '@/lib/db';
 
-export const SESSION_COOKIE = 'untag_session';
-const SESSION_SECRET = process.env.SESSION_SECRET || 'untag-learn-secret-2024';
+export const SESSION_COOKIE = 'unita_session';
+const SESSION_SECRET = process.env.SESSION_SECRET || 'unita-learn-secret-2024';
 
 // Simple base64 encode/decode for session token (NOT production-grade crypto)
 function encode(obj: any): string {

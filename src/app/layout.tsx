@@ -14,14 +14,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UNTAG Learn - Platform MOOC Fakultas Ekonomi Universitas Tulungagung",
+  title: "UNITA Learn - Platform MOOC Fakultas Ekonomi Universitas Tulungagung",
   description: "Belajar kapan saja, di mana saja. Kursus online berkualitas dari Fakultas Ekonomi Universitas Tulungagung. Manajemen, Akuntansi, Ekonomi, Soft Skills, dan Kewirausahaan.",
-  keywords: ["UNTAG", "MOOC", "Fakultas Ekonomi", "Tulungagung", "kursus online", "Manajemen", "Akuntansi", "Kewirausahaan"],
+  keywords: ["UNITA", "MOOC", "Fakultas Ekonomi", "Tulungagung", "kursus online", "Manajemen", "Akuntansi", "Kewirausahaan"],
   authors: [{ name: "Fakultas Ekonomi Universitas Tulungagung" }],
   openGraph: {
-    title: "UNTAG Learn - MOOC Fakultas Ekonomi UNTAG",
+    title: "UNITA Learn - MOOC Fakultas Ekonomi Universitas Tulungagung",
     description: "Belajar kapan saja, di mana saja. Kursus online berkualitas dari Fakultas Ekonomi Universitas Tulungagung.",
-    siteName: "UNTAG Learn",
+    siteName: "UNITA Learn",
     type: "website",
     locale: "id_ID",
   },

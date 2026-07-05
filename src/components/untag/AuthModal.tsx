@@ -106,7 +106,7 @@ export function AuthModal({
   };
 
   const fillDemo = () => {
-    setLoginEmail('mahasiswa@untag.ac.id');
+    setLoginEmail('mahasiswa@unita.ac.id');
     setLoginPwd('password123');
   };
 
@@ -115,12 +115,12 @@ export function AuthModal({
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-600 to-cyan-500 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-900 to-blue-500 flex items-center justify-center">
               <GraduationCap className="w-5 h-5 text-white" />
             </div>
             <div>
               <DialogTitle className="text-base font-bold leading-tight">
-                <span className="text-teal-600">UNTAG</span> Learn
+                <span className="text-blue-900">UNITA</span> Learn
               </DialogTitle>
               <DialogDescription className="text-xs">
                 Fakultas Ekonomi Universitas Tulungagung
@@ -146,7 +146,7 @@ export function AuthModal({
                   required
                   value={loginEmail}
                   onChange={(e) => setLoginEmail(e.target.value)}
-                  placeholder="email@untag.ac.id"
+                  placeholder="email@unita.ac.id"
                 />
               </div>
               <div className="space-y-1.5">
@@ -173,7 +173,7 @@ export function AuthModal({
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-teal-600 hover:bg-teal-700"
+                className="w-full bg-blue-900 hover:bg-blue-800"
               >
                 {loading ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : null}
                 Masuk
@@ -183,7 +183,7 @@ export function AuthModal({
               onClick={fillDemo}
               className="w-full text-xs text-muted-foreground hover:text-primary text-center"
             >
-              💡 Klik untuk isi akun demo: mahasiswa@untag.ac.id
+              💡 Klik untuk isi akun demo: mahasiswa@unita.ac.id
             </button>
           </TabsContent>
 
@@ -245,14 +245,14 @@ export function AuthModal({
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-teal-600 hover:bg-teal-700"
+                className="w-full bg-blue-900 hover:bg-blue-800"
               >
                 {loading ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Sparkles className="w-4 h-4 mr-2" />}
                 Daftar Sekarang
               </Button>
             </form>
             <p className="text-xs text-muted-foreground text-center">
-              Dengan mendaftar, Anda menyetujui Syarat & Ketentuan UNTAG Learn.
+              Dengan mendaftar, Anda menyetujui Syarat & Ketentuan UNITA Learn.
             </p>
           </TabsContent>
         </Tabs>

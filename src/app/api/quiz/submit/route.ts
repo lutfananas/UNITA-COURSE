@@ -136,7 +136,7 @@ export async function POST(req: NextRequest) {
           where: { userId_courseId: { userId: user.id, courseId } },
         });
         if (!existing) {
-          const certNo = `UNTAG-${new Date().getFullYear()}-${Date.now().toString(36).toUpperCase().slice(-8)}`;
+          const certNo = `UNITA-${new Date().getFullYear()}-${Date.now().toString(36).toUpperCase().slice(-8)}`;
           await db.certificate.create({
             data: { userId: user.id, courseId, certificateNo: certNo },
           });

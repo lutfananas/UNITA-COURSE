@@ -181,7 +181,7 @@ export function CourseDetailPage({
   if (loading || !data) {
     return (
       <div className="flex items-center justify-center py-32">
-        <Loader2 className="w-6 h-6 animate-spin text-teal-600" />
+        <Loader2 className="w-6 h-6 animate-spin text-blue-900" />
         <span className="ml-2 text-muted-foreground">Memuat course...</span>
       </div>
     );
@@ -193,7 +193,7 @@ export function CourseDetailPage({
   return (
     <div className="bg-background">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-700 via-cyan-700 to-teal-800 text-white">
+      <section className="bg-gradient-to-br from-blue-800 via-blue-700 to-blue-950 text-white">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 py-8 md:py-12">
           <button
             onClick={() => onNavigate({ type: 'home' })}
@@ -292,10 +292,10 @@ export function CourseDetailPage({
                 <TabsContent value="overview" className="space-y-6">
                   {/* What you'll learn */}
                   {course.whatYouLearn && (
-                    <Card className="border-teal-100 bg-teal-50/50">
+                    <Card className="border-blue-100 bg-blue-50/50">
                       <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-lg">
-                          <Sparkles className="w-5 h-5 text-teal-600" />
+                          <Sparkles className="w-5 h-5 text-blue-900" />
                           Yang Akan Anda Pelajari
                         </CardTitle>
                       </CardHeader>
@@ -303,7 +303,7 @@ export function CourseDetailPage({
                         <ul className="grid sm:grid-cols-2 gap-3">
                           {course.whatYouLearn.split('\n').filter(Boolean).map((item, i) => (
                             <li key={i} className="flex items-start gap-2 text-sm">
-                              <CheckCircle2 className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                              <CheckCircle2 className="w-4 h-4 text-blue-900 mt-0.5 flex-shrink-0" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -334,7 +334,7 @@ export function CourseDetailPage({
                         <ul className="space-y-2">
                           {course.requirements.split('\n').filter(Boolean).map((req, i) => (
                             <li key={i} className="flex items-start gap-2 text-sm">
-                              <CheckCircle2 className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                              <CheckCircle2 className="w-4 h-4 text-blue-900 mt-0.5 flex-shrink-0" />
                               <span>{req}</span>
                             </li>
                           ))}
@@ -352,7 +352,7 @@ export function CourseDetailPage({
                       <div className="flex items-start gap-4">
                         <Avatar className="w-16 h-16">
                           <AvatarImage src={course.instructor.avatar || undefined} />
-                          <AvatarFallback className="bg-teal-100 text-teal-700 text-xl">
+                          <AvatarFallback className="bg-blue-100 text-blue-800 text-xl">
                             {course.instructor.name.charAt(0)}
                           </AvatarFallback>
                         </Avatar>
@@ -390,7 +390,7 @@ export function CourseDetailPage({
                           className="w-full p-4 flex items-center justify-between hover:bg-muted/50 transition-colors text-left"
                         >
                           <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold text-sm flex items-center justify-center">
+                            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-800 font-bold text-sm flex items-center justify-center">
                               {idx + 1}
                             </div>
                             <div>
@@ -414,7 +414,7 @@ export function CourseDetailPage({
                                 >
                                   <div className="flex-shrink-0">
                                     {isDone ? (
-                                      <CheckCircle2 className="w-4 h-4 text-teal-600" />
+                                      <CheckCircle2 className="w-4 h-4 text-blue-900" />
                                     ) : l.preview ? (
                                       <Play className="w-4 h-4 text-amber-500" />
                                     ) : !isEnrolled ? (
@@ -424,7 +424,7 @@ export function CourseDetailPage({
                                     )}
                                   </div>
                                   <div className="flex-1 min-w-0">
-                                    <div className={`text-sm ${isDone ? 'text-teal-700' : ''}`}>
+                                    <div className={`text-sm ${isDone ? 'text-blue-800' : ''}`}>
                                       {l.title}
                                     </div>
                                     {l.description && (
@@ -459,7 +459,7 @@ export function CourseDetailPage({
                     <CardContent className="p-6">
                       <div className="grid md:grid-cols-3 gap-6">
                         <div className="text-center">
-                          <div className="text-5xl font-bold text-teal-600">
+                          <div className="text-5xl font-bold text-blue-900">
                             {course.rating.toFixed(1)}
                           </div>
                           <div className="flex justify-center gap-0.5 my-2">
@@ -548,7 +548,7 @@ export function CourseDetailPage({
                           <Button
                             type="submit"
                             disabled={submittingReview}
-                            className="bg-teal-600 hover:bg-teal-700"
+                            className="bg-blue-900 hover:bg-blue-800"
                           >
                             {submittingReview ? (
                               <Loader2 className="w-4 h-4 mr-2 animate-spin" />
@@ -578,7 +578,7 @@ export function CourseDetailPage({
                             <div className="flex items-start gap-3">
                               <Avatar className="w-9 h-9">
                                 <AvatarImage src={r.user.avatar || undefined} />
-                                <AvatarFallback className="bg-teal-100 text-teal-700">
+                                <AvatarFallback className="bg-blue-100 text-blue-800">
                                   {r.user.name.charAt(0)}
                                 </AvatarFallback>
                               </Avatar>
@@ -638,7 +638,7 @@ export function CourseDetailPage({
                   <div className="p-5">
                     {/* Price */}
                     <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-3xl font-bold text-teal-700">
+                      <span className="text-3xl font-bold text-blue-800">
                         {course.premium ? `Rp ${course.price.toLocaleString('id-ID')}` : 'Gratis'}
                       </span>
                       {course.premium && (
@@ -650,13 +650,13 @@ export function CourseDetailPage({
 
                     {/* Progress (if enrolled) */}
                     {isEnrolled && (
-                      <div className="mb-4 p-3 bg-teal-50 rounded-lg">
+                      <div className="mb-4 p-3 bg-blue-50 rounded-lg">
                         <div className="flex items-center justify-between text-sm mb-1.5">
-                          <span className="font-medium text-teal-900">Progres Anda</span>
-                          <span className="font-bold text-teal-700">{progressPct}%</span>
+                          <span className="font-medium text-blue-950">Progres Anda</span>
+                          <span className="font-bold text-blue-800">{progressPct}%</span>
                         </div>
-                        <Progress value={progressPct} className="h-2 bg-teal-100" />
-                        <div className="text-xs text-teal-700 mt-1.5">
+                        <Progress value={progressPct} className="h-2 bg-blue-100" />
+                        <div className="text-xs text-blue-800 mt-1.5">
                           {data.completedCount} dari {data.totalLessons} pelajaran selesai
                         </div>
                       </div>
@@ -683,7 +683,7 @@ export function CourseDetailPage({
                     ) : isEnrolled ? (
                       <div className="space-y-2">
                         <Button
-                          className="w-full bg-teal-600 hover:bg-teal-700"
+                          className="w-full bg-blue-900 hover:bg-blue-800"
                           onClick={handleStartLearning}
                         >
                           <Play className="w-4 h-4 mr-2" />
@@ -700,7 +700,7 @@ export function CourseDetailPage({
                       </div>
                     ) : (
                       <Button
-                        className="w-full bg-teal-600 hover:bg-teal-700"
+                        className="w-full bg-blue-900 hover:bg-blue-800"
                         onClick={handleEnroll}
                         disabled={enrolling}
                         size="lg"
@@ -721,24 +721,24 @@ export function CourseDetailPage({
                       </div>
                       <ul className="space-y-2 text-sm">
                         <li className="flex items-center gap-2">
-                          <Play className="w-4 h-4 text-teal-600 flex-shrink-0" />
+                          <Play className="w-4 h-4 text-blue-900 flex-shrink-0" />
                           <span>{data.totalLessons} pelajaran on-demand</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-teal-600 flex-shrink-0" />
+                          <Clock className="w-4 h-4 text-blue-900 flex-shrink-0" />
                           <span>{course.durationMin} menit total</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <Globe className="w-4 h-4 text-teal-600 flex-shrink-0" />
+                          <Globe className="w-4 h-4 text-blue-900 flex-shrink-0" />
                           <span>Akses seumur hidup</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <BookOpen className="w-4 h-4 text-teal-600 flex-shrink-0" />
+                          <BookOpen className="w-4 h-4 text-blue-900 flex-shrink-0" />
                           <span>Materi downloadable</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <Award className="w-4 h-4 text-teal-600 flex-shrink-0" />
-                          <span>Sertifikat resmi UNTAG</span>
+                          <Award className="w-4 h-4 text-blue-900 flex-shrink-0" />
+                          <span>Sertifikat resmi UNITA</span>
                         </li>
                       </ul>
                     </div>

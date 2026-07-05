@@ -70,7 +70,7 @@ export function DashboardPage({ user, onNavigate, onOpenAuth }: DashboardPagePro
   return (
     <div className="bg-background min-h-[calc(100vh-4rem)]">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-700 to-cyan-700 text-white">
+      <section className="bg-gradient-to-br from-blue-800 to-blue-700 text-white">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 py-8">
           <div className="flex items-center gap-4">
             <Avatar className="w-16 h-16 border-2 border-white/30">
@@ -120,7 +120,7 @@ export function DashboardPage({ user, onNavigate, onOpenAuth }: DashboardPagePro
         <div className="container mx-auto max-w-7xl px-4 sm:px-6">
           {loading ? (
             <div className="flex items-center justify-center py-20">
-              <Loader2 className="w-6 h-6 animate-spin text-teal-600" />
+              <Loader2 className="w-6 h-6 animate-spin text-blue-900" />
             </div>
           ) : (
             <Tabs value={activeTab} onValueChange={setActiveTab}>
@@ -145,7 +145,7 @@ export function DashboardPage({ user, onNavigate, onOpenAuth }: DashboardPagePro
                     description="Mulai jelajahi katalog dan ambil kursus pertama Anda"
                     action={
                       <Button
-                        className="bg-teal-600 hover:bg-teal-700"
+                        className="bg-blue-900 hover:bg-blue-800"
                         onClick={() => onNavigate({ type: 'home' })}
                       >
                         <Sparkles className="w-4 h-4 mr-2" />
@@ -166,8 +166,8 @@ export function DashboardPage({ user, onNavigate, onOpenAuth }: DashboardPagePro
                                 className="w-full h-full object-cover"
                               />
                             ) : (
-                              <div className="w-full h-full bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center">
-                                <BookOpen className="w-10 h-10 text-teal-400" />
+                              <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-100 flex items-center justify-center">
+                                <BookOpen className="w-10 h-10 text-blue-400" />
                               </div>
                             )}
                           </div>
@@ -175,7 +175,7 @@ export function DashboardPage({ user, onNavigate, onOpenAuth }: DashboardPagePro
                             <div className="flex items-start justify-between gap-3 mb-2">
                               <div>
                                 {enr.course.category && (
-                                  <div className="text-xs text-teal-600 font-medium mb-1">
+                                  <div className="text-xs text-blue-900 font-medium mb-1">
                                     {enr.course.category.name}
                                   </div>
                                 )}
@@ -184,7 +184,7 @@ export function DashboardPage({ user, onNavigate, onOpenAuth }: DashboardPagePro
                                   oleh {enr.course.instructor.name}
                                 </div>
                               </div>
-                              <Badge variant="secondary" className="bg-teal-50 text-teal-700 flex-shrink-0">
+                              <Badge variant="secondary" className="bg-blue-50 text-blue-800 flex-shrink-0">
                                 {enr.progressPct}%
                               </Badge>
                             </div>
@@ -207,7 +207,7 @@ export function DashboardPage({ user, onNavigate, onOpenAuth }: DashboardPagePro
                               </div>
                               <Button
                                 size="sm"
-                                className="bg-teal-600 hover:bg-teal-700"
+                                className="bg-blue-900 hover:bg-blue-800"
                                 onClick={() => onNavigate({ type: 'learn', courseId: enr.courseId })}
                               >
                                 <Play className="w-3.5 h-3.5 mr-1" />
@@ -308,10 +308,10 @@ export function DashboardPage({ user, onNavigate, onOpenAuth }: DashboardPagePro
                   <EmptyState
                     icon={<Award className="w-8 h-8" />}
                     title="Belum memiliki sertifikat"
-                    description="Selesaikan course dan lulus kuis untuk mendapatkan sertifikat resmi UNTAG"
+                    description="Selesaikan course dan lulus kuis untuk mendapatkan sertifikat resmi UNITA"
                     action={
                       <Button
-                        className="bg-teal-600 hover:bg-teal-700"
+                        className="bg-blue-900 hover:bg-blue-800"
                         onClick={() => onNavigate({ type: 'home' })}
                       >
                         <Sparkles className="w-4 h-4 mr-2" />

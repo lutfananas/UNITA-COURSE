@@ -125,7 +125,7 @@ export function QuizPage({ courseId, user, onNavigate }: QuizPageProps) {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <Loader2 className="w-6 h-6 animate-spin text-teal-600" />
+        <Loader2 className="w-6 h-6 animate-spin text-blue-900" />
       </div>
     );
   }
@@ -162,13 +162,13 @@ export function QuizPage({ courseId, user, onNavigate }: QuizPageProps) {
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <Card>
                   <CardContent className="p-4">
-                    <div className="text-3xl font-bold text-teal-600">{result.score}</div>
+                    <div className="text-3xl font-bold text-blue-900">{result.score}</div>
                     <div className="text-xs text-muted-foreground">Skor Akhir</div>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-4">
-                    <div className="text-3xl font-bold text-teal-600">
+                    <div className="text-3xl font-bold text-blue-900">
                       {result.correct}/{result.total}
                     </div>
                     <div className="text-xs text-muted-foreground">Jawaban Benar</div>
@@ -176,7 +176,7 @@ export function QuizPage({ courseId, user, onNavigate }: QuizPageProps) {
                 </Card>
                 <Card>
                   <CardContent className="p-4">
-                    <div className="text-3xl font-bold text-teal-600">
+                    <div className="text-3xl font-bold text-blue-900">
                       {result.passed ? '✓' : '✗'}
                     </div>
                     <div className="text-xs text-muted-foreground">Status</div>
@@ -194,12 +194,12 @@ export function QuizPage({ courseId, user, onNavigate }: QuizPageProps) {
                     <div
                       key={d.id}
                       className={`p-3 rounded-lg border ${
-                        d.isCorrect ? 'bg-teal-50 border-teal-200' : 'bg-red-50 border-red-200'
+                        d.isCorrect ? 'bg-blue-50 border-blue-200' : 'bg-red-50 border-red-200'
                       }`}
                     >
                       <div className="flex items-start gap-2">
                         {d.isCorrect ? (
-                          <CheckCircle2 className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
+                          <CheckCircle2 className="w-4 h-4 text-blue-900 mt-0.5 flex-shrink-0" />
                         ) : (
                           <XCircle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
                         )}
@@ -208,7 +208,7 @@ export function QuizPage({ courseId, user, onNavigate }: QuizPageProps) {
                             {i + 1}. {d.question}
                           </div>
                           {!d.isCorrect && (
-                            <div className="text-xs text-teal-700 mt-1">
+                            <div className="text-xs text-blue-800 mt-1">
                               ✓ Jawaban benar: {questions.find((q) => q.id === d.id)?.options[d.correctIndex]}
                             </div>
                           )}
@@ -229,7 +229,7 @@ export function QuizPage({ courseId, user, onNavigate }: QuizPageProps) {
                   <Button
                     variant="outline"
                     onClick={handleRetry}
-                    className="border-teal-300 text-teal-700 hover:bg-teal-50"
+                    className="border-blue-300 text-blue-800 hover:bg-blue-50"
                   >
                     <RotateCcw className="w-4 h-4 mr-2" />
                     Coba Lagi
@@ -283,18 +283,18 @@ export function QuizPage({ courseId, user, onNavigate }: QuizPageProps) {
             <CardContent className="p-8">
               <div className="grid grid-cols-3 gap-3 mb-6">
                 <div className="text-center p-3 bg-muted rounded-lg">
-                  <div className="text-2xl font-bold text-teal-600">{questions.length}</div>
+                  <div className="text-2xl font-bold text-blue-900">{questions.length}</div>
                   <div className="text-xs text-muted-foreground">Soal</div>
                 </div>
                 <div className="text-center p-3 bg-muted rounded-lg">
-                  <div className="text-2xl font-bold text-teal-600 flex items-center justify-center">
+                  <div className="text-2xl font-bold text-blue-900 flex items-center justify-center">
                     <Clock className="w-5 h-5 mr-1" />
                     15
                   </div>
                   <div className="text-xs text-muted-foreground">Menit</div>
                 </div>
                 <div className="text-center p-3 bg-muted rounded-lg">
-                  <div className="text-2xl font-bold text-teal-600">70</div>
+                  <div className="text-2xl font-bold text-blue-900">70</div>
                   <div className="text-xs text-muted-foreground">Min. Lulus</div>
                 </div>
               </div>
@@ -361,21 +361,21 @@ export function QuizPage({ courseId, user, onNavigate }: QuizPageProps) {
                     onClick={() => setAnswers({ ...answers, [current.id]: i })}
                     className={`w-full text-left p-3 rounded-lg border-2 transition-colors ${
                       selected
-                        ? 'border-teal-600 bg-teal-50'
-                        : 'border-border hover:border-teal-300 hover:bg-muted/30'
+                        ? 'border-blue-900 bg-blue-50'
+                        : 'border-border hover:border-blue-300 hover:bg-muted/30'
                     }`}
                   >
                     <div className="flex items-center gap-3">
                       <div
                         className={`w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
                           selected
-                            ? 'border-teal-600 bg-teal-600 text-white'
+                            ? 'border-blue-900 bg-blue-900 text-white'
                             : 'border-muted-foreground text-muted-foreground'
                         }`}
                       >
                         {String.fromCharCode(65 + i)}
                       </div>
-                      <span className={`text-sm ${selected ? 'font-medium text-teal-900' : ''}`}>
+                      <span className={`text-sm ${selected ? 'font-medium text-blue-950' : ''}`}>
                         {opt}
                       </span>
                     </div>
@@ -412,7 +412,7 @@ export function QuizPage({ courseId, user, onNavigate }: QuizPageProps) {
             </Button>
           ) : (
             <Button
-              className="bg-teal-600 hover:bg-teal-700"
+              className="bg-blue-900 hover:bg-blue-800"
               onClick={() => setCurrentIdx(currentIdx + 1)}
               disabled={answers[current.id] === undefined}
             >
@@ -435,9 +435,9 @@ export function QuizPage({ courseId, user, onNavigate }: QuizPageProps) {
                   onClick={() => setCurrentIdx(i)}
                   className={`w-8 h-8 rounded text-xs font-semibold transition-colors ${
                     isCurrent
-                      ? 'bg-teal-600 text-white'
+                      ? 'bg-blue-900 text-white'
                       : answered
-                      ? 'bg-teal-100 text-teal-700 hover:bg-teal-200'
+                      ? 'bg-blue-100 text-blue-800 hover:bg-blue-200'
                       : 'bg-muted text-muted-foreground hover:bg-muted/70'
                   }`}
                 >

@@ -164,7 +164,7 @@ export function LearningPage({
   if (loading || !data || !activeLesson) {
     return (
       <div className="flex items-center justify-center py-32">
-        <Loader2 className="w-6 h-6 animate-spin text-teal-600" />
+        <Loader2 className="w-6 h-6 animate-spin text-blue-900" />
         <span className="ml-2 text-muted-foreground">Memuat pelajaran...</span>
       </div>
     );
@@ -186,7 +186,7 @@ export function LearningPage({
             <div className="flex-1 mx-4 hidden md:block">
               <div className="flex items-center gap-3">
                 <Progress value={data.progressPct} className="h-2 flex-1" />
-                <span className="text-sm font-semibold text-teal-700 whitespace-nowrap">
+                <span className="text-sm font-semibold text-blue-800 whitespace-nowrap">
                   {data.progressPct}%
                 </span>
               </div>
@@ -219,7 +219,7 @@ export function LearningPage({
                   allowFullScreen
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-teal-700 to-cyan-800 text-white">
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-800 to-blue-800 text-white">
                   <div className="text-center">
                     <Play className="w-12 h-12 mx-auto mb-2 opacity-50" />
                     <div className="text-sm opacity-80">Video tidak tersedia</div>
@@ -231,7 +231,7 @@ export function LearningPage({
             {/* Lesson header */}
             <div className="mb-5">
               {activeModule && (
-                <div className="text-xs text-teal-600 font-medium mb-1">
+                <div className="text-xs text-blue-900 font-medium mb-1">
                   {activeModule.title}
                 </div>
               )}
@@ -245,7 +245,7 @@ export function LearningPage({
                   {activeLesson.durationMin} menit
                 </span>
                 {data.progress[activeLesson.id] && (
-                  <Badge variant="secondary" className="bg-teal-50 text-teal-700">
+                  <Badge variant="secondary" className="bg-blue-50 text-blue-800">
                     <CheckCircle2 className="w-3 h-3 mr-1" />
                     Selesai
                   </Badge>
@@ -284,20 +284,20 @@ export function LearningPage({
                   className={
                     data.progress[activeLesson.id]
                       ? 'w-full sm:w-auto'
-                      : 'w-full sm:w-auto bg-teal-600 hover:bg-teal-700'
+                      : 'w-full sm:w-auto bg-blue-900 hover:bg-blue-800'
                   }
                 >
                   {updatingProgress ? (
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                   ) : data.progress[activeLesson.id] ? (
-                    <CheckCircle2 className="w-4 h-4 mr-2 text-teal-600" />
+                    <CheckCircle2 className="w-4 h-4 mr-2 text-blue-900" />
                   ) : null}
                   {data.progress[activeLesson.id] ? 'Tandai Belum Selesai' : 'Tandai Selesai'}
                 </Button>
                 {activeIndex < allLessons.length - 1 ? (
                   <Button
                     onClick={goNext}
-                    className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700"
+                    className="w-full sm:w-auto bg-blue-900 hover:bg-blue-800"
                   >
                     Berikutnya
                     <ChevronRight className="w-4 h-4 ml-1" />
@@ -348,7 +348,7 @@ export function LearningPage({
                     {data.completedCount}/{data.totalLessons} pelajaran
                   </span>
                   <span>•</span>
-                  <span className="font-semibold text-teal-700">{data.progressPct}%</span>
+                  <span className="font-semibold text-blue-800">{data.progressPct}%</span>
                 </div>
                 <Progress value={data.progressPct} className="h-1.5 mt-2" />
               </div>
@@ -372,18 +372,18 @@ export function LearningPage({
                           onClick={() => goToLesson(l.id)}
                           className={`w-full px-4 py-2.5 flex items-start gap-2 text-left transition-colors border-l-2 ${
                             isActive
-                              ? 'bg-teal-50 border-teal-600'
+                              ? 'bg-blue-50 border-blue-900'
                               : 'border-transparent hover:bg-muted/30'
                           }`}
                         >
                           <div className="flex-shrink-0 mt-0.5">
                             {isDone ? (
-                              <CheckCircle2 className="w-4 h-4 text-teal-600" />
+                              <CheckCircle2 className="w-4 h-4 text-blue-900" />
                             ) : (
                               <div
                                 className={`w-4 h-4 rounded-full border-2 ${
                                   isActive
-                                    ? 'border-teal-600'
+                                    ? 'border-blue-900'
                                     : 'border-muted-foreground/40'
                                 }`}
                               />
@@ -393,9 +393,9 @@ export function LearningPage({
                             <div
                               className={`text-xs leading-snug ${
                                 isActive
-                                  ? 'font-semibold text-teal-900'
+                                  ? 'font-semibold text-blue-950'
                                   : isDone
-                                  ? 'text-teal-700'
+                                  ? 'text-blue-800'
                                   : 'text-foreground'
                               }`}
                             >

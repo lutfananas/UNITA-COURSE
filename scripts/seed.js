@@ -1,4 +1,4 @@
-// Seed UNTAG Learn - MOOC Fakultas Ekonomi
+// Seed UNITA Learn - MOOC Fakultas Ekonomi
 // Pilot course: Interview Skills for Beginners + 5 course ekonomi lainnya
 
 const { PrismaClient } = require('@prisma/client');
@@ -7,59 +7,59 @@ const bcrypt = require('bcryptjs');
 const db = new PrismaClient();
 
 async function main() {
-  console.log('🌱 Seeding UNTAG Learn...');
+  console.log('🌱 Seeding UNITA Learn...');
 
   // ── 1. Instructors ──
   const pwdHash = await bcrypt.hash('password123', 10);
   const adminPwd = await bcrypt.hash('admin123', 10);
 
   const instructor1 = await db.user.upsert({
-    where: { email: 'dosen.fe@untag.ac.id' },
+    where: { email: 'dosen.fe@unita.ac.id' },
     update: {},
     create: {
-      email: 'dosen.fe@untag.ac.id',
+      email: 'dosen.fe@unita.ac.id',
       name: 'Dr. Siti Maimunah, M.M.',
       passwordHash: pwdHash,
       role: 'INSTRUCTOR',
-      headline: 'Dosen Senior Manajemen FE UNTAG',
+      headline: 'Dosen Senior Manajemen FE UNITA',
       bio: 'Pengajar Manajemen SDM & Pengembangan Karir dengan 15+ tahun pengalaman. Bersertifikat CHRP, CHT.',
       avatar: 'https://i.pravatar.cc/150?img=47',
     },
   });
 
   const instructor2 = await db.user.upsert({
-    where: { email: 'andi.fe@untag.ac.id' },
+    where: { email: 'andi.fe@unita.ac.id' },
     update: {},
     create: {
-      email: 'andi.fe@untag.ac.id',
+      email: 'andi.fe@unita.ac.id',
       name: 'Andi Pratama, M.Si.',
       passwordHash: pwdHash,
       role: 'INSTRUCTOR',
-      headline: 'Lektor Akuntansi FE UNTAG',
+      headline: 'Lektor Akuntansi FE UNITA',
       bio: 'Praktisi akuntansi keuangan & investasi. Mantan auditor Big 4.',
       avatar: 'https://i.pravatar.cc/150?img=12',
     },
   });
 
   const instructor3 = await db.user.upsert({
-    where: { email: 'rina.fe@untag.ac.id' },
+    where: { email: 'rina.fe@unita.ac.id' },
     update: {},
     create: {
-      email: 'rina.fe@untag.ac.id',
+      email: 'rina.fe@unita.ac.id',
       name: 'Rina Wulandari, M.E.',
       passwordHash: pwdHash,
       role: 'INSTRUCTOR',
-      headline: 'Dosen Ekonomi Pembangunan FE UNTAG',
+      headline: 'Dosen Ekonomi Pembangunan FE UNITA',
       bio: 'Riset di bidang ekonomi digital & keuangan inklusif.',
       avatar: 'https://i.pravatar.cc/150?img=32',
     },
   });
 
   const student1 = await db.user.upsert({
-    where: { email: 'mahasiswa@untag.ac.id' },
+    where: { email: 'mahasiswa@unita.ac.id' },
     update: {},
     create: {
-      email: 'mahasiswa@untag.ac.id',
+      email: 'mahasiswa@unita.ac.id',
       name: 'Budi Santoso',
       passwordHash: pwdHash,
       role: 'STUDENT',
@@ -69,11 +69,11 @@ async function main() {
   });
 
   const admin = await db.user.upsert({
-    where: { email: 'admin@untag.ac.id' },
+    where: { email: 'admin@unita.ac.id' },
     update: {},
     create: {
-      email: 'admin@untag.ac.id',
-      name: 'Admin UNTAG Learn',
+      email: 'admin@unita.ac.id',
+      name: 'Admin UNITA Learn',
       passwordHash: adminPwd,
       role: 'ADMIN',
       headline: 'Administrator Platform',
@@ -281,7 +281,7 @@ Hasil terukur. "Event dihadiri 500 peserta, hemat budget 20%."
 
 ## 1. "Tell me about yourself" / "CERITAKAN TENTANG DIRI ANDA"
 Struktur: Present-Past-Future
-- Present: "Saya mahasiswa semester akhir Manajemen UNTAG..."
+- Present: "Saya mahasiswa semester akhir Manajemen UNITA..."
 - Past: "Selama kuliah saya aktif di organisasi X, magang di Y..."
 - Future: "Saya tertarik dengan posisi Z karena..."
 
@@ -767,9 +767,9 @@ Selamat mengerjakan!`,
 
   console.log('\n🎉 Seed complete!');
   console.log('Login demo:');
-  console.log('  Student  : mahasiswa@untag.ac.id / password123');
-  console.log('  Instructor: dosen.fe@untag.ac.id / password123');
-  console.log('  Admin    : admin@untag.ac.id / admin123');
+  console.log('  Student  : mahasiswa@unita.ac.id / password123');
+  console.log('  Instructor: dosen.fe@unita.ac.id / password123');
+  console.log('  Admin    : admin@unita.ac.id / admin123');
 }
 
 main().catch((e) => {

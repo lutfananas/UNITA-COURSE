@@ -15,16 +15,16 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Brand */}
           <div className="md:col-span-1">
             <button onClick={() => onNavigate({ type: 'home' })} className="flex items-center gap-2 mb-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-600 to-cyan-500 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-900 to-blue-500 flex items-center justify-center">
                 <GraduationCap className="w-5 h-5 text-white" />
               </div>
               <div>
                 <div className="font-bold text-base leading-none">
-                  <span className="text-teal-600">UNTAG</span>{' '}
+                  <span className="text-blue-900">UNITA</span>{' '}
                   <span className="text-foreground">Learn</span>
                 </div>
                 <div className="text-[10px] text-muted-foreground mt-0.5">
-                  Fakultas Ekonomi UNTAG
+                  Fakultas Ekonomi UNITA
                 </div>
               </div>
             </button>
@@ -32,16 +32,16 @@ export function Footer({ onNavigate }: FooterProps) {
               Platform MOOC Fakultas Ekonomi Universitas Tulungagung. Belajar kapan saja, di mana saja, gratis.
             </p>
             <div className="flex gap-2 mt-4">
-              <a href="#" className="w-8 h-8 rounded-full bg-muted hover:bg-teal-100 hover:text-teal-700 flex items-center justify-center transition-colors">
+              <a href="#" className="w-8 h-8 rounded-full bg-muted hover:bg-blue-100 hover:text-blue-800 flex items-center justify-center transition-colors">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-muted hover:bg-teal-100 hover:text-teal-700 flex items-center justify-center transition-colors">
+              <a href="#" className="w-8 h-8 rounded-full bg-muted hover:bg-blue-100 hover:text-blue-800 flex items-center justify-center transition-colors">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-muted hover:bg-teal-100 hover:text-teal-700 flex items-center justify-center transition-colors">
+              <a href="#" className="w-8 h-8 rounded-full bg-muted hover:bg-blue-100 hover:text-blue-800 flex items-center justify-center transition-colors">
                 <Youtube className="w-4 h-4" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-muted hover:bg-teal-100 hover:text-teal-700 flex items-center justify-center transition-colors">
+              <a href="#" className="w-8 h-8 rounded-full bg-muted hover:bg-blue-100 hover:text-blue-800 flex items-center justify-center transition-colors">
                 <Linkedin className="w-4 h-4" />
               </a>
             </div>
@@ -91,15 +91,15 @@ export function Footer({ onNavigate }: FooterProps) {
             <h4 className="font-semibold text-sm mb-3">Kontak</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-0.5 text-teal-600 flex-shrink-0" />
+                <MapPin className="w-4 h-4 mt-0.5 text-blue-900 flex-shrink-0" />
                 <span>Jl. Mayor Sujadi No. 6, Tulungagung, Jawa Timur</span>
               </li>
               <li className="flex items-start gap-2">
-                <Mail className="w-4 h-4 mt-0.5 text-teal-600 flex-shrink-0" />
+                <Mail className="w-4 h-4 mt-0.5 text-blue-900 flex-shrink-0" />
                 <span>learn.fe@untag-tulungagung.ac.id</span>
               </li>
               <li className="flex items-start gap-2">
-                <Phone className="w-4 h-4 mt-0.5 text-teal-600 flex-shrink-0" />
+                <Phone className="w-4 h-4 mt-0.5 text-blue-900 flex-shrink-0" />
                 <span>(0355) 321432</span>
               </li>
             </ul>
@@ -107,7 +107,7 @@ export function Footer({ onNavigate }: FooterProps) {
         </div>
 
         <div className="mt-8 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} UNTAG Learn - Fakultas Ekonomi Universitas Tulungagung. Semua hak dilindungi.</p>
+          <p>© {new Date().getFullYear()} UNITA Learn - Fakultas Ekonomi Universitas Tulungagung. Semua hak dilindungi.</p>
           <p>Dibuat dengan ❤️ untuk pendidikan Indonesia</p>
         </div>
       </div>
