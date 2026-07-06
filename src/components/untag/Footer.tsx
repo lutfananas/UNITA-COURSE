@@ -1,6 +1,6 @@
 'use client';
 
-import { GraduationCap, Mail, Phone, MapPin, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
 import type { View } from '@/lib/types';
 
 interface FooterProps {
@@ -15,8 +15,12 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Brand */}
           <div className="md:col-span-1">
             <button onClick={() => onNavigate({ type: 'home' })} className="flex items-center gap-2 mb-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-900 to-blue-500 flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-white" />
+              <div className="w-9 h-9 rounded-xl overflow-hidden bg-white flex items-center justify-center ring-1 ring-navy-100">
+                <img
+                  src="/unita-logo.png"
+                  alt="UNITA Learn Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <div className="font-bold text-base leading-none">

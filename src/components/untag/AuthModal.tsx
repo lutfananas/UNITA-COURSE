@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { GraduationCap, Sparkles, Eye, EyeOff, Loader2 } from 'lucide-react';
+import { Sparkles, Eye, EyeOff, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import type { User } from '@/lib/types';
 
@@ -115,8 +115,12 @@ export function AuthModal({
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-900 to-blue-500 flex items-center justify-center">
-              <GraduationCap className="w-5 h-5 text-white" />
+            <div className="w-9 h-9 rounded-xl overflow-hidden bg-white flex items-center justify-center ring-1 ring-navy-100">
+              <img
+                src="/unita-logo.png"
+                alt="UNITA Learn Logo"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div>
               <DialogTitle className="text-base font-bold leading-tight">

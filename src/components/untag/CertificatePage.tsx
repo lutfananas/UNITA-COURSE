@@ -9,7 +9,6 @@ import {
   Award,
   ArrowLeft,
   Download,
-  GraduationCap,
   Shield,
 } from 'lucide-react';
 import type { User, View } from '@/lib/types';
@@ -74,8 +73,12 @@ export function CertificatePage({ certificateId, user, onNavigate }: Certificate
             {/* Header */}
             <div className="text-center mb-6">
               <div className="flex items-center justify-center gap-3 mb-2">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-900 to-blue-500 flex items-center justify-center">
-                  <GraduationCap className="w-7 h-7 text-white" />
+                <div className="w-12 h-12 rounded-xl overflow-hidden bg-white flex items-center justify-center ring-1 ring-navy-100">
+                  <img
+                    src="/unita-logo.png"
+                    alt="UNITA Learn Logo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="text-left">
                   <div className="font-bold text-lg leading-none">
@@ -177,8 +180,8 @@ export function CertificatePage({ certificateId, user, onNavigate }: Certificate
               </div>
               <div className="text-center">
                 <div className="border-t border-foreground/40 pt-2">
-                  <div className="font-semibold text-sm">Dekan Fakultas Ekonomi</div>
-                  <div className="text-xs text-muted-foreground">Universitas Tulungagung</div>
+                  <div className="font-semibold text-sm">Dr. SAWAL SARTONO, M.M.</div>
+                  <div className="text-xs text-muted-foreground">Dekan Fakultas Ekonomi</div>
                 </div>
               </div>
             </div>

@@ -80,7 +80,7 @@ async function main() {
   const adminPwd = await bcrypt.hash('admin123', 10);
 
   const users = [
-    { id: cuid(), email: 'dosen.fe@unita.ac.id', name: 'Dr. Siti Maimunah, M.M.', passwordHash: pwdHash, role: 'INSTRUCTOR', headline: 'Dosen Senior Manajemen FE UNITA', bio: 'Pengajar Manajemen SDM & Pengembangan Karir dengan 15+ tahun pengalaman. Bersertifikat CHRP, CHT.', avatar: 'https://i.pravatar.cc/150?img=47' },
+    { id: cuid(), email: 'dosen.fe@unita.ac.id', name: 'GAUTAMA SASTRA WASKITA, S.E., B.BA., M.M.', passwordHash: pwdHash, role: 'INSTRUCTOR', headline: 'Dosen Senior Manajemen FE UNITA', bio: 'Pengajar Manajemen SDM & Pengembangan Karir dengan 15+ tahun pengalaman. Bersertifikat CHRP, CHT.', avatar: 'https://i.pravatar.cc/150?img=68' },
     { id: cuid(), email: 'andi.fe@unita.ac.id', name: 'Andi Pratama, M.Si.', passwordHash: pwdHash, role: 'INSTRUCTOR', headline: 'Lektor Akuntansi FE UNITA', bio: 'Praktisi akuntansi keuangan & investasi. Mantan auditor Big 4.', avatar: 'https://i.pravatar.cc/150?img=12' },
     { id: cuid(), email: 'rina.fe@unita.ac.id', name: 'Rina Wulandari, M.E.', passwordHash: pwdHash, role: 'INSTRUCTOR', headline: 'Dosen Ekonomi Pembangunan FE UNITA', bio: 'Riset di bidang ekonomi digital & keuangan inklusif.', avatar: 'https://i.pravatar.cc/150?img=32' },
     { id: cuid(), email: 'mahasiswa@unita.ac.id', name: 'Budi Santoso', passwordHash: pwdHash, role: 'STUDENT', headline: 'Mahasiswa S1 Manajemen 2022', bio: null, avatar: 'https://i.pravatar.cc/150?img=15' },

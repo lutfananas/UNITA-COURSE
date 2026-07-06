@@ -13,7 +13,6 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import {
-  GraduationCap,
   Search,
   LayoutDashboard,
   Award,
@@ -83,8 +82,12 @@ export function Header({
               whileTap={{ scale: 0.98 }}
               transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             >
-              <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-br from-navy-900 via-navy-700 to-navy-500 flex items-center justify-center shadow-[0_8px_24px_-6px_rgba(30,58,138,0.5)] group-hover:shadow-[0_12px_32px_-6px_rgba(30,58,138,0.65)] transition-shadow">
-                <GraduationCap className="w-5 h-5 text-white" />
+              <div className="relative w-10 h-10 rounded-2xl overflow-hidden bg-white flex items-center justify-center shadow-[0_8px_24px_-6px_rgba(30,58,138,0.5)] group-hover:shadow-[0_12px_32px_-6px_rgba(30,58,138,0.65)] transition-shadow ring-1 ring-navy-100">
+                <img
+                  src="/unita-logo.png"
+                  alt="UNITA Learn Logo"
+                  className="w-full h-full object-cover"
+                />
                 <motion.div
                   className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 ring-2 ring-white"
                   animate={{ scale: [1, 1.15, 1] }}
